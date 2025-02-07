@@ -84,7 +84,6 @@ public class MyPoint{
         int xDiff = this.x-p.x;
         int yDiff = this.y-p.y;
         return Math.sqrt((xDiff*xDiff) + (yDiff*yDiff));
-
     }
     
 }

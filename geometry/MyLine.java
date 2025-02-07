@@ -111,11 +111,22 @@ public class MyLine {
     
     // calculate the gradient of the line
     // using Math.atan2() method
-    // returning the slope of the line (angle with regards to x-axis) in radians
+    // returning the slope of the line in radians
+    // (counterclockwise angle with regards to x-axis
+    // is positive, and clockwise is negative)
     public double getGradient()
     {
         int xDiff = this.end.getX() - this.begin.getX();
         int yDiff = this.end.getY() - this.begin.getY();
+
+        // check if the line is a valid line
+        // if line si defined by two the same points
+        // then the angle is not defined
+        if (xDiff == 0 && yDiff == 0)
+        {
+            // System.out.println("Angle is not defined, returning NaN");
+            return Double.NaN;
+        }
         return Math.atan2(yDiff, xDiff);
     }
 
@@ -124,5 +135,5 @@ public class MyLine {
     {
         return ("MyLine[begin=" + this.begin + ",end=" + this.end + "]");
     }
-
+    
 }
