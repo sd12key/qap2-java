@@ -32,6 +32,15 @@ public class MyPoint{
         return this.y;
     }
 
+    // added getter for both x and y
+    public int[] getXY()
+    {
+        int[] xy = new int[2];
+        xy[0] = this.x;
+        xy[1] = this.y;
+        return xy;
+    }
+
     // setters
     public void setX(int x) {
         this.x = x;
