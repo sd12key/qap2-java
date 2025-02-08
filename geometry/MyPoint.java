@@ -56,12 +56,6 @@ public class MyPoint{
         this.y = y;
     }
 
-    // toString() method
-    public String toString()
-    {
-    return("("+this.x+","+this.y+")") ;
-    }
-
     // distance to (0,0)
     public double distance()
     {
@@ -84,6 +78,12 @@ public class MyPoint{
         int xDiff = this.x-p.x;
         int yDiff = this.y-p.y;
         return Math.sqrt((xDiff*xDiff) + (yDiff*yDiff));
+    }
+
+    // toString() method
+    public String toString()
+    {
+    return("("+this.x+","+this.y+")") ;
     }
     
 }

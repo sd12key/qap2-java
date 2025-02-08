@@ -39,6 +39,11 @@ public class MyLine {
         return this.begin.getY();
     }
     
+    public int[] getBeginXY()
+    {
+        return this.begin.getXY();
+    }
+
     public int getEndX()
     {
         return this.end.getX();
@@ -48,12 +53,7 @@ public class MyLine {
     {
         return this.end.getY();
     }
-
-    public int[] getBeginXY()
-    {
-        return this.begin.getXY();
-    }
-
+   
     public int[] getEndXY()
     {
         return this.end.getXY();
