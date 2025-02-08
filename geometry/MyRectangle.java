@@ -19,7 +19,7 @@ public class MyRectangle {
     // coordinates of these two points
     //
     // but there is still a chance that the user
-    // will probide points laying on horizontal 
+    // will provide points belonging to horizontal 
     // or vertical line, in this case the rectangle 
     // will have zero width or height
     // ============================================
@@ -94,8 +94,7 @@ public class MyRectangle {
     // getters for bottomLeft
     // ======================
     public MyPoint getBottomLeft() {
-        MyPoint bottomLeft = new MyPoint(this.topLeft.getX(), this.bottomRight.getY());
-        return bottomLeft;
+        return new MyPoint(this.topLeft.getX(), this.bottomRight.getY());
     }
 
     public int getBottomLeftX() {
@@ -117,8 +116,7 @@ public class MyRectangle {
     // getters for topRight
     // ====================
     public MyPoint getTopRight() {
-        MyPoint topRight = new MyPoint(this.bottomRight.getX(), this.topLeft.getY());
-        return topRight;
+        return new MyPoint(this.bottomRight.getX(), this.topLeft.getY());
     }
 
     public int getTopRightX() {
@@ -140,7 +138,7 @@ public class MyRectangle {
     // setters for topLeft
     // ===================
     public void setTopLeft(MyPoint topLeft) {
-        this.topLeft = topLeft;
+        this.topLeft = new MyPoint(topLeft);
     }
 
     public void setTopLeftX(int x) {
@@ -159,7 +157,7 @@ public class MyRectangle {
     // setters for bottomRight
     // =======================
     public void setBottomRight(MyPoint bottomRight) {
-        this.bottomRight = bottomRight;
+        this.bottomRight = new MyPoint(bottomRight);
     }
 
     public void setBottomRightX(int x) {
@@ -234,12 +232,12 @@ public class MyRectangle {
     // get all four vertices (clockwise order starting from top-left)
     // return as an array of MyPoint objects
     public MyPoint[] getVertices() {
-        MyPoint [] rectVertices = new MyPoint[4];
-        rectVertices[0] = this.topLeft;
-        rectVertices[1] = this.getTopRight();
-        rectVertices[2] = this.bottomRight;
-        rectVertices[3] = this.getBottomLeft();
-        return rectVertices;
+        return new MyPoint[] { 
+            this.topLeft, 
+            this.getTopRight(), 
+            this.bottomRight, 
+            this.getBottomLeft() 
+        };
     }
 
     // width of the rectangle
@@ -263,27 +261,21 @@ public class MyRectangle {
     }
 
     // get the center x-coordinate
-    public int getCenterX() {
-        return ((this.topLeft.getX() + this.bottomRight.getX()) / 2);
+    public double getCenterX() {
+        return (((double)this.topLeft.getX() + (double)this.bottomRight.getX()) / 2.0);
     }
 
     // get the center y-coordinate
-    public int getCenterY() {
-        return ((this.topLeft.getY() + this.bottomRight.getY()) / 2);
+    public double getCenterY() {
+        return (((double)this.topLeft.getY() + (double)this.bottomRight.getY()) / 2.0);
     }
 
     // get the center coordinates as [x,y]
-    public int[] getCenterXY() {
-        int[] xy = new int[2];
+    public double[] getCenterXY() {
+        double[] xy = new double[2];
         xy[0] = this.getCenterX();
         xy[1] = this.getCenterY();
         return xy;
-    }
-
-    // get the center as MyPoint object
-    public MyPoint getCenter() {
-        MyPoint rectCenter = new MyPoint(this.getCenterX(), this.getCenterY());
-        return rectCenter;
     }
 
     // length of the diagonal
