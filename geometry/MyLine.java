@@ -14,8 +14,8 @@ public class MyLine {
     
     public MyLine(MyPoint begin, MyPoint end)
     {
-        this.begin = begin;
-        this.end = end;
+        this.begin = new MyPoint(begin.getX(), begin.getY());
+        this.end = new MyPoint(end.getX(), end.getY());
     }
     
     // getters
